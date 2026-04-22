@@ -1,0 +1,145 @@
+@startuml User Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise User Flow
+
+start
+
+:User visits RecipeWise homepage;
+
+if (User authenticated?) then (no)
+  :Show public recipe browsing;
+  :User can view recipes but limited features;
+  if (User wants to save favorites?) then (yes)
+    :Redirect to Sign In page;
+    :User signs in with email/password or Google;
+    :Redirect back to homepage;
+  else (no)
+    :Continue browsing;
+  endif
+else (yes)
+  :Load personalized experience;
+  :Show user profile and favorites;
+endif
+
+:User browses recipes;
+:Apply filters (cuisine, dietary, meal type);
+:Search for specific recipes;
+
+if (User clicks on recipe?) then (yes)
+  :View recipe details page;
+  :See ingredients, instructions, macros;
+  :View reviews and ratings;
+  
+  if (User wants to save recipe?) then (yes)
+    :Click favorite button;
+    :Recipe added to favorites;
+    :Show success toast;
+  else (no)
+    :Continue viewing;
+  endif
+  
+  if (User wants to add to shopping list?) then (yes)
+    :Click "Add to Shopping List";
+    :Ingredients added to shopping list;
+    :Show success toast;
+  else (no)
+    :Continue viewing;
+  endif
+  
+  if (User wants to leave review?) then (yes)
+    :Rate recipe (1-5 stars);
+    :Write comment;
+    :Submit review;
+    :Review saved to database;
+  else (no)
+    :Continue viewing;
+  endif
+  
+  if (User wants AI recommendations?) then (yes)
+    :Click "Get Recommendations";
+    :AI analyzes user preferences;
+    :Show similar recipes;
+  else (no)
+    :Continue browsing;
+  endif
+  
+  if (User wants ingredient substitutions?) then (yes)
+    :Click "Find Substitutions";
+    :AI suggests alternatives;
+    :Show substitution options;
+  else (no)
+    :Continue cooking;
+  endif
+  
+else (no)
+  :Continue browsing homepage;
+endif
+
+if (User wants meal planning?) then (yes)
+  :Navigate to Meal Planner;
+  if (User has favorites?) then (yes)
+    :AI generates personalized meal plan;
+    :Show breakfast, lunch, dinner suggestions;
+  else (no)
+    :Show random meal suggestions;
+  endif
+  
+  if (User likes suggested meals?) then (yes)
+    :Add meals to favorites;
+    :Generate shopping list from meal plan;
+  else (no)
+    :Refresh for new suggestions;
+  endif
+else (no)
+  :Continue browsing;
+endif
+
+if (User wants to manage shopping list?) then (yes)
+  :Navigate to Shopping List;
+  :View all ingredients from saved recipes;
+  if (User wants to remove items?) then (yes)
+    :Click remove on specific ingredients;
+    :Item removed from list;
+  else (no)
+    :Continue managing list;
+  endif
+  
+  if (User wants to clear list?) then (yes)
+    :Click "Clear All";
+    :Shopping list cleared;
+  else (no)
+    :Continue managing;
+  endif
+else (no)
+  :Continue browsing;
+endif
+
+if (User wants to manage profile?) then (yes)
+  :Navigate to Profile page;
+  :View user information and preferences;
+  :Update dietary preferences;
+  :Update preferred cuisines;
+  :View favorite recipes;
+  :View meal history;
+else (no)
+  :Continue using app;
+endif
+
+if (User wants to sign out?) then (yes)
+  :Click Sign Out;
+  :Redirect to homepage;
+  :Show public browsing mode;
+else (no)
+  :Continue using app;
+endif
+
+stop
+
+@enduml
+

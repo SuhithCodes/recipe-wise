@@ -1,0 +1,193 @@
+@startuml User Flow Redesigned
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise User Flow - Redesigned
+
+start
+
+:User visits RecipeWise;
+
+if (Already authenticated?) then (Yes)
+  :Load personalized dashboard;
+  :Show user favorites and preferences;
+else (No)
+  :Show public recipe browsing;
+  if (Want to save favorites?) then (Yes)
+    :Redirect to Sign In;
+    if (Have account?) then (Yes)
+      :Enter email and password;
+      if (Valid credentials?) then (Yes)
+        :User logged in successfully;
+      else (No)
+        :Login failed;
+        if (Forgot password?) then (Yes)
+          :Reset password;
+          :Try login again;
+        else (No)
+          :Exit;
+        endif
+      endif
+    else (No)
+      if (Want to register?) then (Yes)
+        :Fill registration form;
+        :Account created;
+        :Redirect to login;
+      else (No)
+        if (Login via Google?) then (Yes)
+          :Google authentication;
+          :User logged in successfully;
+        else (No)
+          :Exit;
+        endif
+      endif
+    endif
+  else (No)
+    :Continue browsing;
+  endif
+endif
+
+:User browses recipes;
+
+if (Want to filter recipes?) then (Yes)
+  :Apply filters (cuisine, dietary, meal type);
+else (No)
+  :Show all recipes;
+endif
+
+if (Want to search?) then (Yes)
+  :Enter search query;
+  :Show filtered results;
+else (No)
+  :Continue browsing;
+endif
+
+if (Click on recipe?) then (Yes)
+  :View recipe details;
+  :Show ingredients, instructions, macros;
+  if (Want to save recipe?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Add to favorites;
+      :Show success message;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want to add to shopping list?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Add ingredients to shopping list;
+      :Show success message;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want to leave review?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Rate and comment;
+      :Submit review;
+      :Review saved;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want AI recommendations?) then (Yes)
+    :Get AI suggestions;
+    :Show similar recipes;
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want ingredient substitutions?) then (Yes)
+    :Get AI substitutions;
+    :Show alternatives;
+  else (No)
+    :Continue cooking;
+  endif
+else (No)
+  :Continue browsing;
+endif
+
+if (Want meal planning?) then (Yes)
+  if (Authenticated?) then (Yes)
+    :Navigate to Meal Planner;
+    if (Has favorites?) then (Yes)
+      :AI generates personalized plan;
+      :Show breakfast, lunch, dinner;
+    else (No)
+      :Show random suggestions;
+    endif
+    
+    if (Like suggestions?) then (Yes)
+      :Add to favorites;
+      :Generate shopping list;
+    else (No)
+      :Refresh suggestions;
+    endif
+  else (No)
+    :Redirect to sign in;
+  endif
+else (No)
+  :Continue browsing;
+endif
+
+if (Want to manage shopping list?) then (Yes)
+  if (Authenticated?) then (Yes)
+    :Navigate to Shopping List;
+    :View all ingredients;
+    if (Want to remove items?) then (Yes)
+      :Remove specific ingredients;
+    else (No)
+      :Continue managing;
+    endif
+    
+    if (Want to clear list?) then (Yes)
+      :Clear all items;
+    else (No)
+      :Continue managing;
+    endif
+  else (No)
+    :Redirect to sign in;
+  endif
+else (No)
+  :Continue browsing;
+endif
+
+if (Want to manage profile?) then (Yes)
+  if (Authenticated?) then (Yes)
+    :Navigate to Profile;
+    :View user info and preferences;
+    :Update dietary preferences;
+    :Update cuisine preferences;
+    :View favorite recipes;
+  else (No)
+    :Redirect to sign in;
+  endif
+else (No)
+  :Continue using app;
+endif
+
+if (Want to sign out?) then (Yes)
+  :Sign out;
+  :Redirect to homepage;
+  :Show public browsing;
+else (No)
+  :Continue using app;
+endif
+
+stop
+
+@enduml
+

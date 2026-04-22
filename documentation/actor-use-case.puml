@@ -1,0 +1,176 @@
+@startuml Actor Use Case Diagram
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam actorBackgroundColor #FFC107
+skinparam actorBorderColor #FF9800
+skinparam usecaseBackgroundColor #FFC107
+skinparam usecaseBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Actor Use Case Diagram
+
+' Actors
+actor "Guest User" as Guest
+actor "Registered User" as User
+actor "Admin" as Admin
+actor "AI System" as AI
+actor "External API" as API
+
+' Use Cases - Authentication
+package "Authentication" {
+  usecase "Sign Up" as UC1
+  usecase "Sign In" as UC2
+  usecase "Sign Out" as UC3
+  usecase "Reset Password" as UC4
+  usecase "Google OAuth" as UC5
+}
+
+' Use Cases - Recipe Management
+package "Recipe Management" {
+  usecase "Browse Recipes" as UC6
+  usecase "Search Recipes" as UC7
+  usecase "Filter Recipes" as UC8
+  usecase "View Recipe Details" as UC9
+  usecase "Rate Recipe" as UC10
+  usecase "Review Recipe" as UC11
+  usecase "Save Favorite" as UC12
+  usecase "Remove Favorite" as UC13
+  usecase "View Favorites" as UC14
+}
+
+' Use Cases - AI Features
+package "AI Features" {
+  usecase "Get Recommendations" as UC15
+  usecase "Find Substitutions" as UC16
+  usecase "Calculate Macros" as UC17
+  usecase "Generate Meal Plan" as UC18
+}
+
+' Use Cases - Shopping List
+package "Shopping List" {
+  usecase "Add to Shopping List" as UC19
+  usecase "View Shopping List" as UC20
+  usecase "Remove Item" as UC21
+  usecase "Clear List" as UC22
+  usecase "Generate from Meal Plan" as UC23
+}
+
+' Use Cases - Meal Planning
+package "Meal Planning" {
+  usecase "Plan Daily Meals" as UC24
+  usecase "View Meal Suggestions" as UC25
+  usecase "Save Meal Plan" as UC26
+  usecase "Refresh Suggestions" as UC27
+}
+
+' Use Cases - Profile Management
+package "Profile Management" {
+  usecase "View Profile" as UC28
+  usecase "Update Preferences" as UC29
+  usecase "Set Dietary Restrictions" as UC30
+  usecase "Choose Cuisine Preferences" as UC31
+}
+
+' Use Cases - Admin Functions
+package "Admin Functions" {
+  usecase "Manage Recipes" as UC32
+  usecase "Moderate Reviews" as UC33
+  usecase "View Analytics" as UC34
+  usecase "Manage Users" as UC35
+}
+
+' Use Cases - External Integration
+package "External Integration" {
+  usecase "Import from TheMealDB" as UC36
+  usecase "Fetch External Recipes" as UC37
+  usecase "Sync External Data" as UC38
+}
+
+' Relationships - Guest User
+Guest --> UC1 : <<include>>
+Guest --> UC2 : <<include>>
+Guest --> UC6
+Guest --> UC7
+Guest --> UC8
+Guest --> UC9
+
+' Relationships - Registered User
+User --> UC2 : <<include>>
+User --> UC3
+User --> UC4
+User --> UC5
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+User --> UC10
+User --> UC11
+User --> UC12
+User --> UC13
+User --> UC14
+User --> UC15
+User --> UC16
+User --> UC17
+User --> UC18
+User --> UC19
+User --> UC20
+User --> UC21
+User --> UC22
+User --> UC23
+User --> UC24
+User --> UC25
+User --> UC26
+User --> UC27
+User --> UC28
+User --> UC29
+User --> UC30
+User --> UC31
+
+' Relationships - Admin
+Admin --> UC32
+Admin --> UC33
+Admin --> UC34
+Admin --> UC35
+Admin --> UC36
+Admin --> UC37
+Admin --> UC38
+
+' Relationships - AI System
+AI --> UC15 : <<include>>
+AI --> UC16 : <<include>>
+AI --> UC17 : <<include>>
+AI --> UC18 : <<include>>
+
+' Relationships - External API
+API --> UC36 : <<include>>
+API --> UC37 : <<include>>
+API --> UC38 : <<include>>
+
+' Extend relationships
+UC15 ..> UC6 : <<extend>>
+UC16 ..> UC9 : <<extend>>
+UC17 ..> UC9 : <<extend>>
+UC18 ..> UC24 : <<extend>>
+UC23 ..> UC18 : <<extend>>
+
+' Include relationships
+UC1 ..> UC2 : <<include>>
+UC2 ..> UC3 : <<include>>
+UC6 ..> UC7 : <<include>>
+UC6 ..> UC8 : <<include>>
+UC9 ..> UC10 : <<include>>
+UC9 ..> UC11 : <<include>>
+UC12 ..> UC9 : <<include>>
+UC13 ..> UC14 : <<include>>
+UC19 ..> UC9 : <<include>>
+UC20 ..> UC21 : <<include>>
+UC20 ..> UC22 : <<include>>
+UC24 ..> UC25 : <<include>>
+UC25 ..> UC26 : <<include>>
+UC28 ..> UC29 : <<include>>
+UC29 ..> UC30 : <<include>>
+UC29 ..> UC31 : <<include>>
+
+@enduml
+

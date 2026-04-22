@@ -1,0 +1,7 @@
+pytest==8.2.1
+selenium==4.24.0
+webdriver-manager==4.0.2
+pytest-html==4.1.1
+py==1.11.0
+
+

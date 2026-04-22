@@ -1,0 +1,74 @@
+@startuml Recipe Discovery Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Recipe Discovery Flow
+
+start
+
+:User browses recipes;
+
+if (Want to filter recipes?) then (Yes)
+  :Apply filters (cuisine, dietary, meal type);
+  :Show filtered results;
+else (No)
+  :Show all recipes;
+endif
+
+if (Want to search?) then (Yes)
+  :Enter search query;
+  :Show search results;
+else (No)
+  :Continue browsing;
+endif
+
+if (Click on recipe?) then (Yes)
+  :View recipe details;
+  :Show ingredients, instructions, macros;
+  :Show reviews and ratings;
+  
+  if (Want to save recipe?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Add to favorites;
+      :Show success message;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want to add to shopping list?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Add ingredients to shopping list;
+      :Show success message;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+  
+  if (Want to leave review?) then (Yes)
+    if (Authenticated?) then (Yes)
+      :Rate and comment;
+      :Submit review;
+      :Review saved;
+    else (No)
+      :Redirect to sign in;
+    endif
+  else (No)
+    :Continue viewing;
+  endif
+else (No)
+  :Continue browsing;
+endif
+
+stop
+
+@enduml
+

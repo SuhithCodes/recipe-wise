@@ -1,0 +1,55 @@
+@startuml Main User Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Main User Flow
+
+start
+
+:User visits RecipeWise;
+
+note right: Authentication Flow
+:Check authentication status;
+:Load appropriate dashboard;
+
+note right: Recipe Discovery Flow
+:User browses recipes;
+:Apply filters and search;
+:View recipe details;
+:Save favorites or add to shopping list;
+
+note right: AI Features Flow
+:Get AI recommendations;
+:Find ingredient substitutions;
+:Calculate nutritional macros;
+
+note right: Meal Planning Flow
+:Plan daily meals;
+:Generate meal suggestions;
+:Create shopping lists;
+
+note right: Shopping List Flow
+:Manage shopping list;
+:Remove or clear items;
+:Add more ingredients;
+
+note right: Profile Management
+:Update user preferences;
+:View favorite recipes;
+:Manage account settings;
+
+if (Want to sign out?) then (Yes)
+  :Sign out;
+  :Redirect to homepage;
+else (No)
+  :Continue using app;
+endif
+
+stop
+
+@enduml
+

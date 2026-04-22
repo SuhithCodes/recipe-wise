@@ -1,0 +1,70 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A vibrant spread of fresh ingredients on a wooden table.",
+      "imageUrl": "https://images.unsplash.com/photo-1506368249639-73a05d6f6488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmb29kJTIwaW5ncmVkaWVudHN8ZW58MHx8fHwxNzU4NjA0NTE5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "food ingredients"
+    },
+    {
+      "id": "spaghetti-bolognese",
+      "description": "A classic spaghetti bolognese in a white bowl.",
+      "imageUrl": "https://images.unsplash.com/photo-1598866594230-a7c12756260f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzcGFnaGV0dGklMjBib2xvZ25lc2V8ZW58MHx8fHwxNzU4NTg3NDgyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "spaghetti bolognese"
+    },
+    {
+      "id": "vegan-curry",
+      "description": "A rich and creamy vegan chickpea curry.",
+      "imageUrl": "https://images.unsplash.com/photo-1720949579208-70855e23dfc3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx2ZWdhbiUyMGN1cnJ5fGVufDB8fHx8MTc1ODYwNDUxOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vegan curry"
+    },
+    {
+      "id": "keto-salmon",
+      "description": "Grilled salmon with asparagus on a plate, a healthy keto meal.",
+      "imageUrl": "https://images.unsplash.com/photo-1676300184021-96fa00e1a987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Z3JpbGxlZCUyMHNhbG1vbnxlbnwwfHx8fDE3NTg1ODU0ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "grilled salmon"
+    },
+    {
+      "id": "gluten-free-pancakes",
+      "description": "A stack of fluffy gluten-free pancakes with berries and syrup.",
+      "imageUrl": "https://images.unsplash.com/photo-1619592982904-ef0a0da5b7e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwYW5jYWtlcyUyMGJlcnJpZXN8ZW58MHx8fHwxNzU4NTkxOTE3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pancakes berries"
+    },
+    {
+      "id": "chicken-tacos",
+      "description": "Three vibrant chicken tacos with fresh toppings.",
+      "imageUrl": "https://images.unsplash.com/photo-1574781475489-01cf7f6674c1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y2hpY2tlbiUyMHRhY29zfGVufDB8fHx8MTc1ODU5NTUxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chicken tacos"
+    },
+    {
+      "id": "chocolate-cake",
+      "description": "A rich, decadent slice of chocolate lava cake.",
+      "imageUrl": "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjaG9jb2xhdGUlMjBjYWtlfGVufDB8fHx8MTc1ODU4NTg5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chocolate cake"
+    },
+    {
+      "id": "quinoa-salad",
+      "description": "A healthy and colorful quinoa salad with mixed vegetables.",
+      "imageUrl": "https://images.unsplash.com/photo-1615865417491-9941019fbc00?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxxdWlub2ElMjBzYWxhZHxlbnwwfHx8fDE3NTg1MTAyMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "quinoa salad"
+    },
+    {
+      "id": "beef-stir-fry",
+      "description": "A sizzling beef and broccoli stir-fry in a wok.",
+      "imageUrl": "https://images.unsplash.com/photo-1712065612536-8a2109ef6511?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiZWVmJTIwc3Rpci1mcnl8ZW58MHx8fHwxNzU4NjA0NTIwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "beef stir-fry"
+    },
+    {
+      "id": "breakfast-smoothie",
+      "description": "A vibrant purple berry smoothie in a glass.",
+      "imageUrl": "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiZXJyeSUyMHNtb290aGllfGVufDB8fHx8MTc1ODU4NzAyM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "berry smoothie"
+    },
+    {
+      "id": "margherita-pizza",
+      "description": "A classic margherita pizza with fresh basil.",
+      "imageUrl": "https://images.unsplash.com/photo-1564936281291-294551497d81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtYXJnaGVyaXRhJTIwcGl6emF8ZW58MHx8fHwxNzU4NTk4MDU0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "margherita pizza"
+    }
+  ]
+}

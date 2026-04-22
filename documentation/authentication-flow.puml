@@ -1,0 +1,59 @@
+@startuml Authentication Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Authentication Flow
+
+start
+
+:User visits RecipeWise;
+
+if (Already authenticated?) then (Yes)
+  :Load personalized dashboard;
+  :Show user favorites and preferences;
+  note right: User is logged in
+else (No)
+  :Show public recipe browsing;
+  if (Want to save favorites?) then (Yes)
+    :Redirect to Sign In;
+    if (Have account?) then (Yes)
+      :Enter email and password;
+      if (Valid credentials?) then (Yes)
+        :User logged in successfully;
+        :Redirect to intended page;
+      else (No)
+        :Login failed;
+        if (Forgot password?) then (Yes)
+          :Reset password;
+          :Try login again;
+        else (No)
+          :Exit;
+        endif
+      endif
+    else (No)
+      if (Want to register?) then (Yes)
+        :Fill registration form;
+        :Account created;
+        :Redirect to login;
+      else (No)
+        if (Login via Google?) then (Yes)
+          :Google authentication;
+          :User logged in successfully;
+        else (No)
+          :Exit;
+        endif
+      endif
+    endif
+  else (No)
+    :Continue browsing;
+  endif
+endif
+
+stop
+
+@enduml
+

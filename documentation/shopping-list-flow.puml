@@ -1,0 +1,50 @@
+@startuml Shopping List Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Shopping List Flow
+
+start
+
+:User wants to manage shopping list;
+
+if (Authenticated?) then (Yes)
+  :Navigate to Shopping List;
+  :View all ingredients;
+  :Show grouped by recipe;
+  
+  if (Want to remove items?) then (Yes)
+    :Click remove on specific ingredients;
+    :Item removed from list;
+    :Update list display;
+  else (No)
+    :Continue managing;
+  endif
+  
+  if (Want to clear list?) then (Yes)
+    :Click "Clear All";
+    :Shopping list cleared;
+    :Show empty state;
+  else (No)
+    :Continue managing;
+  endif
+  
+  if (Want to add more items?) then (Yes)
+    :Navigate to recipes;
+    :Add recipe to shopping list;
+    :Return to shopping list;
+  else (No)
+    :Continue managing;
+  endif
+else (No)
+  :Redirect to sign in;
+endif
+
+stop
+
+@enduml
+

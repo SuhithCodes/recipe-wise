@@ -1,0 +1,100 @@
+@startuml Actor Use Case Diagram - Clean
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam actorBackgroundColor #FFC107
+skinparam actorBorderColor #FF9800
+skinparam usecaseBackgroundColor #FFC107
+skinparam usecaseBorderColor #FF9800
+skinparam arrowColor #FF9800
+skinparam packageBackgroundColor #FFE0B2
+skinparam packageBorderColor #FF9800
+
+title RecipeWise Actor Use Case Diagram
+
+' Actors
+actor "Guest User" as Guest
+actor "Registered User" as User
+actor "Admin" as Admin
+
+' Core Use Cases
+usecase "Browse Recipes" as UC1
+usecase "Search Recipes" as UC2
+usecase "View Recipe Details" as UC3
+usecase "Sign In" as UC4
+usecase "Sign Up" as UC5
+
+' User Features
+usecase "Save Favorite" as UC6
+usecase "Add to Shopping List" as UC7
+usecase "Rate Recipe" as UC8
+usecase "Review Recipe" as UC9
+usecase "View Favorites" as UC10
+usecase "Manage Shopping List" as UC11
+
+' AI Features
+usecase "Get AI Recommendations" as UC12
+usecase "Find Ingredient Substitutions" as UC13
+usecase "Calculate Nutritional Macros" as UC14
+usecase "Generate Meal Plan" as UC15
+
+' Profile & Planning
+usecase "View Profile" as UC16
+usecase "Update Preferences" as UC17
+usecase "Plan Daily Meals" as UC18
+usecase "View Meal Suggestions" as UC19
+
+' Admin Features
+usecase "Manage Recipes" as UC20
+usecase "Moderate Content" as UC21
+usecase "View Analytics" as UC22
+
+' Relationships - Guest User
+Guest --> UC1
+Guest --> UC2
+Guest --> UC3
+Guest --> UC4
+Guest --> UC5
+
+' Relationships - Registered User
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC6
+User --> UC7
+User --> UC8
+User --> UC9
+User --> UC10
+User --> UC11
+User --> UC12
+User --> UC13
+User --> UC14
+User --> UC15
+User --> UC16
+User --> UC17
+User --> UC18
+User --> UC19
+
+' Relationships - Admin
+Admin --> UC20
+Admin --> UC21
+Admin --> UC22
+
+' Include relationships
+UC1 ..> UC2 : <<include>>
+UC3 ..> UC8 : <<include>>
+UC3 ..> UC9 : <<include>>
+UC6 ..> UC3 : <<include>>
+UC7 ..> UC3 : <<include>>
+UC11 ..> UC7 : <<include>>
+UC16 ..> UC17 : <<include>>
+UC18 ..> UC19 : <<include>>
+
+' Extend relationships
+UC12 ..> UC1 : <<extend>>
+UC13 ..> UC3 : <<extend>>
+UC14 ..> UC3 : <<extend>>
+UC15 ..> UC18 : <<extend>>
+
+@enduml
+

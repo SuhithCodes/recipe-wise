@@ -1,0 +1,48 @@
+@startuml AI Features Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise AI Features Flow
+
+start
+
+:User viewing recipe;
+
+if (Want AI recommendations?) then (Yes)
+  :Click "Get Recommendations";
+  :AI analyzes user preferences;
+  :AI processes recipe data;
+  :Show similar recipes;
+  :User can browse suggestions;
+else (No)
+  :Continue viewing;
+endif
+
+if (Want ingredient substitutions?) then (Yes)
+  :Click "Find Substitutions";
+  :AI analyzes missing ingredient;
+  :AI suggests alternatives;
+  :Show substitution options;
+  :User can select alternatives;
+else (No)
+  :Continue cooking;
+endif
+
+if (Want macro calculations?) then (Yes)
+  :Click "Calculate Macros";
+  :AI analyzes ingredients;
+  :AI calculates nutritional data;
+  :Show macro breakdown;
+  :Cache results for future use;
+else (No)
+  :Continue viewing;
+endif
+
+stop
+
+@enduml
+

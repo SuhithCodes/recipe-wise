@@ -1,0 +1,41 @@
+@startuml Meal Planning Flow
+
+!theme plain
+skinparam backgroundColor #FAF9F0
+skinparam activityBackgroundColor #FFC107
+skinparam activityBorderColor #FF9800
+skinparam arrowColor #FF9800
+
+title RecipeWise Meal Planning Flow
+
+start
+
+:User wants meal planning;
+
+if (Authenticated?) then (Yes)
+  :Navigate to Meal Planner;
+  if (Has favorites?) then (Yes)
+    :AI generates personalized plan;
+    :Show breakfast, lunch, dinner;
+    :Display meal suggestions;
+  else (No)
+    :Show random suggestions;
+    :Display popular recipes;
+  endif
+  
+  if (Like suggestions?) then (Yes)
+    :Add meals to favorites;
+    :Generate shopping list from meal plan;
+    :Show shopping list;
+  else (No)
+    :Refresh suggestions;
+    :Get new meal plan;
+  endif
+else (No)
+  :Redirect to sign in;
+endif
+
+stop
+
+@enduml
+
