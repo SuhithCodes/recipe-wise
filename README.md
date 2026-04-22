@@ -74,23 +74,3 @@ The project includes a suite of automated tests using Selenium and Pytest.
     ```
 4.  The test report will be generated at `test/automated/reports/report.html`.
 
-## Contributors
-
-This project was developed by a team of dedicated students:
-
--   **Charmi Shah** - [Project Manager & Backend Lead]
-    -   Oversee project timeline and facilitate Scrum events.
-    -   Develop backend APIs for recipes, users, and ratings.
-    -   Integrate the LLM for ingredient substitutions.
--   **Saakshi Jignesh Bhatt** - [Frontend Lead]
-    -   Develop the user interface for all features based on Figma designs.
-    -   Implement the Meal Planner and Shopping List UI.
-    -   Ensure the application is fully responsive.
--   **Apurva Sharad Pingale** - [UI/UX Designer & QA Engineer]
-    -   Design intuitive user flows and mock-ups.
-    -   Create and execute test cases for all user stories.
-    -   Conduct UAT and gather user feedback.
--   **Hrishitha Sai Kakarla** - [Database Admin & AI Specialist]
-    -   Design and manage the database schema.
-    -   Implement the logic for the AI recipe recommendation engine.
-    -   Manage project documentation and API specifications for the development team.
