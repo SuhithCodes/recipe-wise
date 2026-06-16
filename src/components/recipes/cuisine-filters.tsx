@@ -24,7 +24,7 @@ export default function CuisineFilters({ activeCuisine, onCuisineChange }: Cuisi
       try {
         const areas = await getAreas();
         // Sort cuisines alphabetically
-        const sortedAreas = areas.sort((a, b) => a.strArea.localeCompare(b.strArea));
+        const sortedAreas = (areas as Area[]).sort((a, b) => a.strArea.localeCompare(b.strArea));
         setCuisines(sortedAreas);
       } catch (error) {
         console.error('Error fetching cuisines:', error);

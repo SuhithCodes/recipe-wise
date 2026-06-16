@@ -111,6 +111,7 @@ export default function ProfilePage() {
       idMeal: r.id,
       strMeal: r.name,
       strDrinkAlternate: null,
+      strMealAlternate: null,
       strCategory: r.mealType,
       strArea: r.cuisine,
       strInstructions: '',
@@ -198,6 +199,21 @@ export default function ProfilePage() {
               <Button variant="outline" onClick={() => router.push('/shopping-list')}>Shopping List</Button>
               <Button variant="ghost" onClick={async () => { await logOut(); router.push('/'); }}>Log out</Button>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mb-10 p-6 bg-muted/50 rounded-lg border">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h2 className="font-headline text-lg font-semibold">Your API ID</h2>
+            <p className="text-sm text-muted-foreground">Use this ID to connect your AI assistant to your RecipeWise account.</p>
+          </div>
+          <div className="flex items-center gap-2">
+            <code className="px-3 py-1.5 bg-background rounded border text-sm">{user.uid}</code>
+            <Button variant="outline" size="sm" onClick={() => navigator.clipboard.writeText(user.uid)}>
+              Copy
+            </Button>
           </div>
         </div>
       </section>

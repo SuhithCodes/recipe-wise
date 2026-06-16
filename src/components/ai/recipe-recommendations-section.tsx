@@ -28,6 +28,7 @@ export default function RecipeRecommendationsSection() {
           idMeal: r.id,
           strMeal: r.name,
           strDrinkAlternate: null,
+          strMealAlternate: null,
           strCategory: r.mealType,
           strArea: r.cuisine,
           strInstructions: '',

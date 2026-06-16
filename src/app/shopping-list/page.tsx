@@ -6,15 +6,15 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { X, ShoppingCart, Trash2 } from 'lucide-react';
 
 export default function ShoppingListPage() {
-  const { items, removeIngredient, clearList } = useShoppingList();
+  const { items, removeIngredient, clearList, isLoading } = useShoppingList();
 
-  const groupedItems = Array.from(items.values()).reduce((acc, { ingredient, recipeName }) => {
-    if (!acc[recipeName]) {
-      acc[recipeName] = [];
+  const groupedItems = Array.from(items.values()).reduce((acc, item) => {
+    if (!acc[item.recipeName]) {
+      acc[item.recipeName] = [];
     }
-    acc[recipeName].push(ingredient);
+    acc[item.recipeName].push(item);
     return acc;
-  }, {} as Record<string, typeof items extends Map<any, {ingredient: infer I, recipeName: any}> ? I[] : never >);
+  }, {} as Record<string, typeof items extends Map<any, infer I> ? I[] : never >);
 
   return (
     <div className="container mx-auto max-w-3xl px-4 py-8">
@@ -31,7 +31,13 @@ export default function ShoppingListPage() {
         )}
       </div>
 
-      {items.size === 0 ? (
+      {isLoading ? (
+        <Card className="text-center py-12">
+          <CardContent>
+            <p className="text-muted-foreground">Loading your shopping list...</p>
+          </CardContent>
+        </Card>
+      ) : items.size === 0 ? (
         <Card className="text-center py-12">
           <CardContent>
             <p className="text-muted-foreground">Your shopping list is empty.</p>
@@ -40,21 +46,21 @@ export default function ShoppingListPage() {
         </Card>
       ) : (
         <div className="space-y-6">
-          {Object.entries(groupedItems).map(([recipeName, ingredients]) => (
+          {Object.entries(groupedItems).map(([recipeName, recipeItems]) => (
             <Card key={recipeName}>
               <CardHeader>
                 <CardTitle className="font-headline text-xl">{recipeName}</CardTitle>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-2">
-                  {ingredients.map((ing) => (
-                    <li key={ing.name} className="flex justify-between items-center p-2 rounded-md hover:bg-muted">
+                  {recipeItems.map((item) => (
+                    <li key={item.id} className="flex justify-between items-center p-2 rounded-md hover:bg-muted">
                       <span>
-                        <span className="font-semibold">{ing.quantity} {ing.unit}</span> {ing.name}
+                        <span className="font-semibold">{item.quantity} {item.unit}</span> {item.ingredientName}
                       </span>
-                      <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => removeIngredient(ing.name)}>
+                      <Button variant="ghost" size="icon" className="h-6 w-6" onClick={() => removeIngredient(item.id, item.ingredientName)}>
                         <X className="h-4 w-4" />
-                        <span className="sr-only">Remove {ing.name}</span>
+                        <span className="sr-only">Remove {item.ingredientName}</span>
                       </Button>
                     </li>
                   ))}

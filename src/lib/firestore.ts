@@ -3,7 +3,7 @@
 import { db } from '@/lib/firebase';
 import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, QueryDocumentSnapshot, DocumentData, updateDoc, setDoc } from 'firebase/firestore';
 import type { Recipe } from '@/types';
-import { adaptMealToRecipe } from './data-adapter';
+import { adaptMealToRecipe, adaptRecipeToMeal } from './data-adapter';
 import type { Meal } from '@/types';
 
 async function docToRecipe(doc: any): Promise<Recipe> {
@@ -330,3 +330,22 @@ export async function getCachedMacros(recipeId: string) {
     }
 }
 
+// Add a new recipe to Firestore
+export async function addRecipe(recipe: Omit<Recipe, 'id' | 'rating' | 'reviewsCount' | 'reviews'>): Promise<Recipe> {
+    const mealData = adaptRecipeToMeal(recipe);
+    
+    // Generate a unique ID (MealDB uses numeric string IDs)
+    const newId = Math.floor(Math.random() * 1000000000).toString();
+    const docData = {
+        ...mealData,
+        idMeal: newId,
+        rating: 0,
+        reviewsCount: 0,
+        createdAt: new Date().toISOString()
+    };
+    
+    const docRef = doc(db, 'recipes', newId);
+    await setDoc(docRef, docData);
+    
+    return await adaptMealToRecipe(docData as Meal);
+}

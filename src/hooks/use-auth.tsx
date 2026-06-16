@@ -17,10 +17,10 @@ type AuthState = {
   user: User | null;
   isLoggedIn: boolean;
   isLoading: boolean;
-  signIn: typeof signInWithEmailAndPassword;
+  signIn: (email: string, password: string) => Promise<any>;
   signUp: (email: string, password: string, fullName: string) => Promise<any>;
   signInWithGoogle: () => Promise<any>;
-  logOut: typeof signOut;
+  logOut: () => Promise<void>;
   initialize: () => () => void;
 };
 
