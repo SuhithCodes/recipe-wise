@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { useRouter } from 'next/navigation';
-import { ChefHat } from 'lucide-react';
+import { ChefHat, Github, Linkedin, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -20,6 +20,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
+import Image from 'next/image';
 
 const formSchema = z.object({
   fullName: z.string().min(2, { message: "Full name must be at least 2 characters." }),
@@ -73,9 +74,59 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="container mx-auto flex min-h-[calc(100vh-4rem)] items-center justify-center">
-      <Card className="w-full max-w-sm">
-        <CardHeader className="text-center">
+    <div className="w-full lg:grid lg:min-h-[calc(100vh-4rem)] lg:grid-cols-2">
+      <div className="hidden lg:block relative bg-muted">
+        <Image
+          src="/image.png"
+          alt="RecipeWise background"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Overlay Content */}
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center p-8 text-center text-white">
+          <h1 className="text-6xl md:text-8xl font-headline font-bold mb-4 drop-shadow-lg tracking-tight">
+            RecipeWise
+          </h1>
+          
+          <div className="w-full max-w-sm border-t border-dashed border-white/60 my-6"></div>
+          
+          <div className="flex items-center gap-8">
+            <Link
+              href="https://www.linkedin.com/in/gsuhith"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary transition-colors flex items-center gap-2 group"
+            >
+              <Linkedin className="h-8 w-8 drop-shadow-md group-hover:scale-110 transition-transform" />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
+            
+            <Link
+              href="https://suhithghanathay.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary transition-colors flex items-center gap-2 group"
+            >
+              <Globe className="h-8 w-8 drop-shadow-md group-hover:scale-110 transition-transform" />
+              <span className="sr-only">Portfolio</span>
+            </Link>
+
+            <Link
+              href="https://github.com/SuhithCodes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-primary transition-colors flex items-center gap-2 group"
+            >
+              <Github className="h-8 w-8 drop-shadow-md group-hover:scale-110 transition-transform" />
+              <span className="sr-only">GitHub</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        <Card className="w-full max-w-sm">
+          <CardHeader className="text-center">
           <div className="flex justify-center items-center mb-4">
             <ChefHat className="h-8 w-8 text-primary" />
           </div>
@@ -171,6 +222,7 @@ export default function SignUpPage() {
           </p>
         </CardFooter>
       </Card>
+      </div>
     </div>
   );
 }
